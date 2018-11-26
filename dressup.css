@@ -1,0 +1,109 @@
+
+body{
+	background-color: #ffcdd2;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+
+img {
+	position: absolute;
+	margin-left: 15%;
+  display:inline-block;
+  height:100%;
+}
+
+
+button{
+	margin-top:20%;
+	background: #ffcdd2;
+	border: 0;
+	text-transform: uppercase;
+}
+
+ul{
+	list-style-type: none;
+	display:inline-block;
+}
+
+character{
+	z-index: 0;   
+}
+
+#pant_button{
+	background-image: url(my-icons-collection/png/pants_4789.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+#bed_button{
+	background-image: url(my-icons-collection/png/icons8-sleeping-in-bed-50.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#wardrobe_button{
+	background-image: url(my-icons-collection/png/closet_4088.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#desk_button{
+	background-image: url(my-icons-collection/png/desk_icon-icons.com_54432.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.shirt{
+	visibility:hidden;
+  z-index: 2;
+}
+
+.pant{
+	visibility:hidden;
+  z-index: 1;
+	}
+
+.bed{
+		margin-top: 30%;
+		margin-left: 45%;
+		visibility: hidden;
+		z-index:-1000;
+		height: 45%;
+}
+
+.wardrobe{
+	right:30%;
+	visibility: hidden;
+	z-index: -1000;
+	height: 100%;
+}
+
+.pavimento{
+	z-index:-2000;
+	height:80%;
+	margin-top: 30%;
+	right: 0%;
+}
+
+.desk{
+	z-index:-1000;
+	margin-bottom: 10%;
+	left: -11%;
+	visibility: hidden;
+	height: 83%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
