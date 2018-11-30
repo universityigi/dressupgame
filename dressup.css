@@ -52,27 +52,23 @@ character{
 	background-repeat: no-repeat;
 }
 
-.shirt{
-	visibility:hidden;
+#shirts_img{
   z-index: 2;
 }
 
-.pant{
-	visibility:hidden;
-  z-index: 1;
-	}
+#pants_img{
+  	z-index: 1;
+}
 
-.bed{
+#beds_img{
 		margin-top: 30%;
 		margin-left: 45%;
-		visibility: hidden;
 		z-index:-1000;
 		height: 45%;
 }
 
-.wardrobe{
+#wardrobes_img{
 	right:30%;
-	visibility: hidden;
 	z-index: -1000;
 	height: 100%;
 }
@@ -84,11 +80,10 @@ character{
 	right: 0%;
 }
 
-.desk{
+#desks_img{
 	z-index:-1000;
 	margin-bottom: 10%;
 	left: -10%;
-	visibility: hidden;
 	height: 83%;
 
 }

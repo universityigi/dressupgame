@@ -1,55 +1,92 @@
-$(document).ready(function(){
-
-    function ImageSwitcher(choices, i) {
-        i = 0;
-        
-        this.Next = function() {
-            hide_current_image();
-            show_next_image();
-        }
-        
-        var hide_current_image = function() {
-            if(choices){
-                choices[i].style.visibility = "hidden";
-                i += 1;
-            }
-        }
-        var show_next_image = function() {
-            if(choices){
-                if(i == (choices.length)) {
-                    i = 0;
-                }
-                choices[i].style.visibility = "visible";
-            }
-        }
+function saveindex(){
+    //alert("Leaving Page")
+    var o = { pant: pants_picker.i,
+             shirt: shirts_picker.i,
+             bed: beds_picker.i,
+             wardrobe: wardrobes_picker.i,
+             desk: desks_picker.i
     }
-      
-        var pants = $(".pant");
-        var shirts = $(".shirt");
-        var beds = $(".bed");
-        var wardrobes = $(".wardrobe");
-        var desks = $(".desk");
-        var backgrounds = $(".bg");
-    
-        var shirt_picker = new ImageSwitcher(shirts);
-        document.getElementById("shirt_button").onclick = function() { shirt_picker.Next(); };
+
+    localStorage.ind=JSON.stringify(o);
+}
+
+function ImageSwitcher(elem, choices) {
+    this.i = 0;
+    this.elem = elem;
+    this.choices = choices;
+
+    this.Next = function(elem, arr) {
+        this.i ++;
+        if(this.i == (choices.length)) this.i = 0;
+        this.elem.src = this.choices[this.i];
+        //saveindex();
+    }
+    this.set = function (ind) {
+        this.i = ind;
+        this.elem.src = this.choices[ind];
+    }
+}
+
+var pants = [
+    "https://s-media-cache-ak0.pinimg.com/originals/b3/c2/4d/b3c24d75d647564cdaa1d85f854587ba.png",
+    "https://s-media-cache-ak0.pinimg.com/originals/a5/3a/56/a53a562de60d53e341289584e585f776.png",
+    "https://s-media-cache-ak0.pinimg.com/originals/c3/78/78/c3787895d353d3b4d8534855ae0b1d83.png"
+]
+var shirts = [
+    "https://s-media-cache-ak0.pinimg.com/originals/25/43/a9/2543a9ef622c17ca0ccd1fae4441a8ac.png",
+    "https://s-media-cache-ak0.pinimg.com/originals/05/b5/56/05b556aee24a79e17050270c7274de8c.png",
+    "https://s-media-cache-ak0.pinimg.com/originals/d7/5c/ba/d75cbab4c752bcd839098e7304fa449b.png",
+    "https://s-media-cache-ak0.pinimg.com/originals/84/07/2f/84072f86cc9c7700367b958b1252527b.png",
+    "https://s-media-cache-ak0.pinimg.com/originals/d3/72/cf/d372cf67ffa1073da171f6824ed30140.png",
+    "https://s-media-cache-ak0.pinimg.com/originals/20/72/f6/2072f64b75fb5753a6b038312697fa0d.png",
+    "https://s-media-cache-ak0.pinimg.com/originals/1f/86/b1/1f86b13b426f5ab1483326c97eaa962c.png"
+]
+
+var beds = [
+    "letto.png", 
+    "letto2.png"
+]
+
+var wardrobes = [
+    "armadio1.png"
+]
+
+var desks = [
+    "scrivania1.png",
+    "specchio.png"
+]
+
+
+var pants_picker;
+var shirts_picker;
+var beds_picker;
+var wardrobes_picker;
+var desks_picker;
+$(document).ready(function(){
         
-        var pants_picker = new ImageSwitcher(pants);
-        document.getElementById("pant_button").onclick = function() {pants_picker.Next(); };
+     pants_picker = new ImageSwitcher(pants_img,pants);
+     pant_button.onclick = function() {pants_picker.Next(); };
+     shirts_picker=new ImageSwitcher(shirts_img, shirts);
+     shirt_button.onclick = function() {shirts_picker.Next(); };
+     beds_picker = new ImageSwitcher(beds_img, beds);
+     bed_button.onclick = function() {beds_picker.Next();};
+     wardrobes_picker = new ImageSwitcher(wardrobes_img, wardrobes);
+     wardrobe_button.onclick = function() {wardrobes_picker.Next();};
+     desks_picker = new ImageSwitcher(desks_img,desks);
+     desk_button.onclick = function() {desks_picker.Next(); };
 
-        var beds_picker = new ImageSwitcher(beds);
-        document.getElementById("bed_button").onclick = function() {beds_picker.Next(); };
-
-        var wardrobes_picker = new ImageSwitcher(wardrobes);
-        document.getElementById("wardrobe_button").onclick = function() {wardrobes_picker.Next(); };
-
-        var desks_picker = new ImageSwitcher(desks);
-        document.getElementById("desk_button").onclick = function() {desks_picker.Next(); };
-        
-        var bg_picker = new ImageSwitcher(backgrounds);
-        document.getElementById("bg_button").onclick = function() {bg_picker.Next(); };
     
-    });
+    if (localStorage.ind) {
+        //alert("LS")
+        var o = JSON.parse(localStorage.ind);
+        pants_picker.set(o.pant);
+        shirts_picker.set(o.shirt);
+        beds_picker.set(o.bed);
+        wardrobes_picker.set(o.wardrobe);
+        desks_picker.set(o.desk);
+    }
     
-      $("#shirt_button").click(function(){
-      $("#shirt-menu").css("visibility", "visible"); });
+    window.addEventListener("beforeunload", saveindex, false);
+});
+
+    
