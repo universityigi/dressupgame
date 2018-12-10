@@ -9,7 +9,7 @@ function saveindex(){
              decoration: decorations_picker.i
     }
 
-    localStorage.ind=JSON.stringify(o);
+    sessionStorage.ind=JSON.stringify(o);
 }
 
 function ImageSwitcher(elem, choices) {
@@ -22,6 +22,7 @@ function ImageSwitcher(elem, choices) {
         if(this.i == (choices.length)) this.i = 0;
         this.elem.src = this.choices[this.i];
         //saveindex();
+        console.log(this.i,this.elem.src);
     }
     this.set = function (ind) {
         this.i = ind;
@@ -30,11 +31,13 @@ function ImageSwitcher(elem, choices) {
 }
 
 var pants = [
+    "vuota.png",
     "https://s-media-cache-ak0.pinimg.com/originals/b3/c2/4d/b3c24d75d647564cdaa1d85f854587ba.png",
     "https://s-media-cache-ak0.pinimg.com/originals/a5/3a/56/a53a562de60d53e341289584e585f776.png",
     "https://s-media-cache-ak0.pinimg.com/originals/c3/78/78/c3787895d353d3b4d8534855ae0b1d83.png"
 ]
 var shirts = [
+    "vuota.png",
     "https://s-media-cache-ak0.pinimg.com/originals/25/43/a9/2543a9ef622c17ca0ccd1fae4441a8ac.png",
     "https://s-media-cache-ak0.pinimg.com/originals/05/b5/56/05b556aee24a79e17050270c7274de8c.png",
     "https://s-media-cache-ak0.pinimg.com/originals/d7/5c/ba/d75cbab4c752bcd839098e7304fa449b.png",
@@ -45,16 +48,19 @@ var shirts = [
 ]
 
 var beds = [
+    "vuota.png",
     "letto.png", 
     "letto2.png",
     "letto4.png"
 ]
 
 var wardrobes = [
+    "vuota.png",
     "armadio1.png"
 ]
 
 var desks = [
+    "vuota.png",
     "scrivania1.png",
     "specchio.png",
     "specchiera2.png",
@@ -62,12 +68,14 @@ var desks = [
 ]
 
 var lights = [
+    "vuota.png",
     "luci.png",
     "luci2.png",
     "stars.png"
 ]
 
 var decorations = [
+    "vuota.png",
     "mirror1.png",
     "mirror2.png",
     "finestra.png",
@@ -101,9 +109,9 @@ $(document).ready(function(){
      decoration_button.onclick = function() {decorations_picker.Next(); };
 
     
-    if (localStorage.ind) {
+    if (sessionStorage.ind) {
         //alert("LS")
-        var o = JSON.parse(localStorage.ind);
+        var o = JSON.parse(sessionStorage.ind);
         pants_picker.set(o.pant);
         shirts_picker.set(o.shirt);
         beds_picker.set(o.bed);
@@ -115,5 +123,3 @@ $(document).ready(function(){
     
     window.addEventListener("beforeunload", saveindex, false);
 });
-
-    
