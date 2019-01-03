@@ -1,4 +1,3 @@
-
 body{
 	background-color: #ffcdd2;
   font-family: 'Ubuntu', sans-serif;
@@ -8,8 +7,8 @@ body{
 img {
 	position: absolute;
 	margin-left: 15%;
-  display:inline-block;
-  height:100%;
+  	display:inline-block;
+	height:100%; 
 }
 
 
@@ -25,7 +24,7 @@ ul{
 	display:inline-block;
 }
 
-character{
+.character{
 	z-index: 0;   
 }
 
@@ -33,19 +32,22 @@ character{
 	background-image: url(my-icons-collection/png/pants_4789.png);
 	background-position: center;
 	background-repeat: no-repeat;
+	border:0;
 	background-color: rgb(253,253,188);
 }
 #bed_button{
 	background-image: url(my-icons-collection/png/icons8-sleeping-in-bed-50.png);
 	background-position: center;
 	background-repeat: no-repeat;
+	border:0;
 	background-color: rgb(84,173,228);
 }
 
 #wardrobe_button{
-	background-image: url(my-icons-collection/png/closet_4088.png);
+	background-image: url(my-icons-collection/png/closet.png);
 	background-position: center;
 	background-repeat: no-repeat;
+	border:0;
 	background-color: rgba(255,144,227,0.849);
 }
 
@@ -108,15 +110,14 @@ character{
 
 #lights_img{
 	z-index:3;
-	width:69.9%;
-	height:32.55%;
+	width:100%;
+	height:auto;
 	left:-2.95%;
 }
 
 #decorations_img{
 	z-index:-1006;
-	width:23.95%;
-	height:31.59%;
+	height:40.59%;
 	left:10.55%;
 	top:8.9%;
 
